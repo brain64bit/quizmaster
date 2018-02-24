@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title
+      | Quizmaster
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    .container
+      .mt-3
+        = yield
+    nav.navbar.fixed-bottom.navbar-expand-sm.navbar-dark.bg-dark
+      = link_to "Quiz Master", root_path, class: "navbar-brand"
+      button.navbar-toggler data-toggle="collapse" data-target="#navbar_collapse" aria-controls="navbar_collapse" aria-expanded="false" aria-label="Toggle navigation"
+        span.navbar-toggle-icon
+      .collapse.navbar-collapse#navbar_collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            = link_to "Manage Questions", admin_questions_path, class: "nav-link"
+  footer
+    = yield :ckeditor_tag
