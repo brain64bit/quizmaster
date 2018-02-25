@@ -39,7 +39,8 @@ Capybara.register_driver :headless_chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
 end
 
-Capybara.default_driver = :headless_chrome
+Capybara.default_driver = :chrome
+Capybara.default_max_wait_time = 5
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
@@ -70,4 +71,17 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:example, webpack: true) do
+    `bin/webpack`
+  end
+end
+
+def fill_in_ckeditor(locator, opts)
+  browser = page.driver.browser
+  content = opts.fetch(:with).to_json
+  page.execute_script <<-SCRIPT
+    CKEDITOR.instances['#{locator}'].setData(#{content});
+    $('textarea##{locator}').text(#{content});
+  SCRIPT
 end

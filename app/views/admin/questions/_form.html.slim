@@ -1,4 +1,4 @@
-= form_for [:admin, @question] do |f|
+= form_for [:admin, @question], remote: true do |f|
   = render 'shared/errors', obj: @question
   .form-group
     = f.label :content, "Question"

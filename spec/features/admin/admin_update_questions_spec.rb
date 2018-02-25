@@ -12,12 +12,14 @@ RSpec.feature "Admin::UpdateQuestions", type: :feature do
     question = "stub-new-content"
     answer = "stub-new-answer"
 
-    fill_in "Question", with: question
+    fill_in_ckeditor "question_content", with: question
     fill_in "Answer", with: answer
 
     click_button "Save"
 
-    expect(current_path).to eq admin_questions_path
+    Timeout.timeout(Capybara.default_max_wait_time) do
+      current_path == admin_questions_path
+    end
 
     expect(page).to have_content question
     expect(page).to have_content answer
