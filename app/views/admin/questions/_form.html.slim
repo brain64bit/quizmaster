@@ -2,13 +2,13 @@
   = render 'shared/errors', obj: @question
   .form-group
     = f.label :content, "Question"
-    = f.cktext_area :content, rows: 5, class: "form-control", ckeditor: {toolbar: 'mini'}
+    = f.cktext_area :content, rows: 5, class: "form-control", required: true, ckeditor: {toolbar: 'mini'}
   .form-group
     = f.label :answer
-    = f.text_field :answer, class: "form-control"
+    = f.text_field :answer, class: "form-control", required: true
   = f.submit "Save", class: "btn btn-primary"
   | &nbsp;
-  = link_to "Cancel", admin_questions_path, class: "btn"
+  = link_to "Cancel", admin_questions_path, class: "btn btn-secondary"
 
 - content_for :ckeditor_tag do
   = javascript_include_tag "ckeditor/init"
