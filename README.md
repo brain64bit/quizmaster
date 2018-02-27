@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Introduction
 
-Things you may want to cover:
+**QuizMaster** is web app that you will get random question, and what you need is answer the question with number (e.g 15, 7) or english numbering words (e.g fifty, seven).
 
-* Ruby version
+### Setup
 
-* System dependencies
+Here are the steps required to run the web application:
 
-* Configuration
+- Clone the repo, then install run `bundle install`
+- After successfully execute the bundle command then run 
 
-* Database creation
 
-* Database initialization
+```
+PG_USERNAME=<yourpgusername> PG_PASSWORD=<yourpgpassword> foreman start -f Procfile.dev
+```
 
-* How to run the test suite
+### Test
 
-* Services (job queues, cache servers, search engines, etc.)
+This application contains several tests:
 
-* Deployment instructions
-
-* ...
+- Rspec used by some tests like unit, controller and feature tests. To run you just need to execute `rspec` inside working directory
+- Jest via yarn used to run javascript tests, in this application is used to test react components, to execute run `yarn test`.
