@@ -9,7 +9,15 @@
 Here are the steps required to run the web application:
 
 - Clone the repo, then install run `bundle install`
-- After successfully execute the bundle command then run 
+- Please run following commands:
+
+```
+PG_USERNAME=<yourpgusername> PG_PASSWORD=<yourpgpassword> rails db:create
+PG_USERNAME=<yourpgusername> PG_PASSWORD=<yourpgpassword> rails db:migrate
+PG_USERNAME=<yourpgusername> PG_PASSWORD=<yourpgpassword> rails db:seed
+```
+
+- After successfully execute that commands then run 
 
 
 ```
