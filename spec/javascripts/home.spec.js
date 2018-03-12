@@ -12,4 +12,16 @@ describe("<Home />", () => {
       expect(component.find(QuestionAnswer).length).toEqual(1);
     });
   });
+
+  describe("#handleClick", () => {
+    it("calls #_requestNextQuestion", () => {
+      const component = mount(<Home question="stub-question" />);
+      const stubEvent = { preventDefault: jest.fn() };
+      const mockRequestNextQuestion = jest.spyOn(component.instance(), "_requestNextQuestion");
+
+      component.instance().handleClick(stubEvent);
+
+      expect(mockRequestNextQuestion).toHaveBeenCalled();
+    });
+  });
 });

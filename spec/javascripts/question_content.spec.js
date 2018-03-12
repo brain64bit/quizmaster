@@ -9,4 +9,15 @@ describe("<QuestionContent />", () => {
       expect(component.text()).toEqual("stub-content");
     });
   });
+
+  describe("#componentWillReceiveProps", () => {
+    it("update state content to nextProp's content", () => {
+      const component = mount(<QuestionContent content="old" />);
+      const nextProps = { content: "new" };
+
+      component.instance().componentWillReceiveProps(nextProps);
+
+      expect(component.state().content).toEqual("new");
+    });
+  });
 });

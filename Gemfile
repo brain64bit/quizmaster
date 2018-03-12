@@ -46,6 +46,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'ffaker'
+  gem 'annotate'
 end
 
 group :development do
@@ -60,10 +61,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'slim-rails'
-gem 'humanize'
+gem 'activerecord-session_store'
 gem 'bootstrap'
-gem 'jquery-rails'
 gem 'ckeditor'
-gem 'react-rails'
 gem 'foreman'
+gem 'jquery-rails'
+gem 'numbers_and_words'
+gem 'react-rails'
+gem 'slim-rails'

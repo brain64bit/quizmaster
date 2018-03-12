@@ -8,12 +8,16 @@ class QuestionContent extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      content: nextProps.content
+    })
+  }
+
   render () {
     return (
-      <div className="card-body">
         <blockquote className="blockquote" dangerouslySetInnerHTML={{__html: this.state.content}}>
         </blockquote>
-      </div>
     );
   }
 }

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  post 'quiz/:id/answer', to: "quiz#answer"
+  post 'quiz/:id/answer', to: 'quiz#answer'
+  get  'quiz/next_question', to: 'quiz#next_question'
+  get  'quiz/finish', to: 'quiz#finish'
 
   root to: "quiz#index"
 

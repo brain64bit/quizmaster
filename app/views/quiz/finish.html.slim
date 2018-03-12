@@ -1,0 +1,11 @@
+.card
+  .card-header.bg-info.text-white
+    |Selamat, anda telah menyelesaikan QuizMaster!
+  .card-body
+    h2
+      |Skore anda adalah
+      |&nbsp;
+    h1
+      span.badge.badge-success= @score 
+  .card-footer
+    = link_to "reset", root_path(reset: true), class: "btn btn-secondary btn-sm", data: { turbolinks: false }
